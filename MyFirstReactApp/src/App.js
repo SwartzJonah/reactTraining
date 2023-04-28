@@ -11,24 +11,27 @@ function App() {
     lastName: 'Perez'
   };
 
-  const element = (
-    <div>
-      <h1>Hello!</h1>
-      <h2>Good to see you here.</h2>
-    </div>
-  )
+    const element = (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      </div>
+    );
 
-  function getGreeting(user) {
-    if (user) {
-      return <h1>Hello, {formatName(user)}!</h1>;
+  function Greeting(props) {
+    if (props.name) {
+      return <h1>Hello, {props.name}!</h1>;
     }
     return <h1>Hello, Stranger.</h1>;
   }
+
+  const practiceInject = <Greeting name="Jonah" />;
   return (
     <div className="App">
       <header className="App-header">
-        {getGreeting(user)}
+        <Greeting name="Son" />
         {element}
+        {practiceInject}
         <img src={logo} className="App-logo" alt="logo" />
 
         <p>
