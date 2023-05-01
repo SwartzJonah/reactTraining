@@ -6,7 +6,7 @@ const Overview = (props) => {
     return (
         <ul>
             {taskArray.map((task) => {
-                return <li>{task.name}</li>;
+                return <li key={task.id}>{task.name}</li>;
             })}
         </ul>
     )

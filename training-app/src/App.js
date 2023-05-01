@@ -1,5 +1,6 @@
 
 import React, { Component } from "react";
+import uniqid from "uniqid"
 import Overview from './components/Overview';
 
 class App extends Component {
@@ -7,7 +8,9 @@ class App extends Component {
     super();
 
     this.state = {
-      task: { name: ''},
+      task: { name: '',
+      id: uniqid()
+    },
       taskArray: [],
     };
   }
@@ -16,6 +19,7 @@ class App extends Component {
     this.setState({
       task : {
         name: event.target.value,
+        id: this.state.task.id,
       }
     });
   };
@@ -24,7 +28,10 @@ class App extends Component {
     event.preventDefault();
     this.setState({
       taskArray: this.state.taskArray.concat(this.state.task),
-      task: { name: '' },
+      task: { 
+        name: '',
+        id: uniqid()
+      },
     })
   }
 
@@ -46,7 +53,7 @@ class App extends Component {
             Add task
           </button>
         </form>
-
+        <Overview taskArray={taskArray} />
       </div>
 
     );
