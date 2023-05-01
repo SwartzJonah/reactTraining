@@ -1,7 +1,15 @@
 import React from 'react';
 
-function Overview({title}) {
-  return <div>{title}</div>;
+const Overview = (props) => {
+    const { taskArray } = props;
+
+    return (
+        <ul>
+            {taskArray.map((task) => {
+                return <li>{task.name}</li>;
+            })}
+        </ul>
+    )
 }
 
 export default Overview;
